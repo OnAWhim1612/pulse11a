@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Recipe Page - Netflix Style</title>
+ <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #141414;
+      color: #ffffff;
+    }
+
+    header {
+      background-color: #111;
+      padding: 10px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .logo {
+      max-width: 200px;
+    }
+
+    main {
+      padding: 20px;
+    }
+
+    .container {
+      max-width: 800px;
+      margin: 0 auto;
+    }
+
+    .recipe-details {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .video-container {
+      position: relative;
+      width: 16%; /* Adjust this value to make the video smaller */
+      padding-bottom: 10%; /* 16:9 aspect ratio */
+    }
+
+    .video-placeholder {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: #333;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      color: #ffffff;
+    }
+
+    .recipe-title {
+      font-size: 36px;
+      margin-top: 20px;
+    }
+
+    .about-recipe {
+      font-style: italic;
+      margin-top: 10px;
+    }
+
+    .ingredients,
+    .instructions {
+      margin-top: 20px;
+    }
+
+    .instructions li {
+    }
+
+    h2 {
+      font-size: 28px;
+      margin-bottom: 10px;
+    }
+
+    ul,
+    ol {
+      list-style: none;
+      padding-left: 0;
+    }
+
+    li {
+      margin-bottom: 10px;
+    }
+
+    .author {
+      font-size: 18px;
+      margin-top: 20px;
+      color: #777;
+    }
+
+    input[type="checkbox"] {
+      /* Increase size of checkboxes */
+      width: 20px;
+      height: 20px;
+      /* Remove default styling */
+      -webkit-appearance: none;
+      -moz-appearance: none;
+      appearance: none;
+      /* Smokey gray background */
+      background-color: #141414;
+      /* Netflix-red outline */
+      outline: 2px solid #E50914;
+      /* Rounded edges */
+
+      /* Add a margin to create space between checkbox and label text */
+      margin-right: 8px;
+      /* Position the checkbox relative to its container */
+      position: relative;
+    }
+
+    /* Style the checked state */
+    input[type="checkbox"]:checked {
+      /* Change the color when checked */
+      background-color: #E50914;
+    }
+
+    /* Hide the default checkbox icon */
+    input[type="checkbox"]::before {
+      content: "";
+      /* Absolute positioning to create custom checkbox appearance */
+      position: absolute;
+      top: 3px;
+      left: 3px;
+      width: 14px;
+      height: 14px;
+      /* White checkmark on Netflix-red background */
+      background-color: #E50914;
+      /* Add a checkmark with pseudo-element */
+      content: "\2713";
+      color: white;
+      font-size: 12px;
+      /* Center the checkmark inside the checkbox */
+      line-height: 14px;
+      text-align: center;
+      /* Hide the checkmark when checkbox is unchecked */
+      opacity: 0;
+    }
+
+    /* Show the checkmark when checkbox is checked */
+    input[type="checkbox"]:checked::before {
+      opacity: 1;
+    }
+
+    .step-number {
+      display: inline-block;
+      width: 30px;
+      height: 30px;
+      background-color: #E50914; /* Netflix-red background */
+      color: white;
+      font-size: 16px;
+      text-align: center;
+      line-height: 30px;
+      margin-right: 10px;
+
+    }
+
+  </style>
+</head>
+
+<body>
+  <header>
+    <img src="https://i.imgur.com/6wgR25M.png" alt="Logo" class="logo">
+  </header>
+
+  <main>
+    <div class="container">
+      <section class="recipe-details">
+
+        <h1 class="recipe-title">Moist Maker Sandwich</h1>
+        <p class="about-recipe">Today, we're about to whip up a beloved dish famously featured in the TV show FRIENDS – Ross's delectable 'Moist Maker sandwich.' This culinary masterpiece combines Thanksgiving leftovers into a harmonious symphony of moist and juicy flavors, expertly layered between slices of bread, tender turkey, and other delightful Thanksgiving delicacies. So, let's dive right into the recipe!
+
+          This scrumptious creation is ideally portioned for 3 people, but feel free to share it with more generous souls – unlike Joey!</p>
+
+        <div class="ingredients">
+          <h2>Ingredients</h2>
+          <h3>For gravy:</h3>
+          <ul>
+            <li><input type="checkbox"> 3 tbsp Flour</li>
+            <li><input type="checkbox"> 3 tbsp. butter</li>
+            <li><input type="checkbox"> 1/2 c. turkey pan drippings</li>
+            <li><input type="checkbox"> 1 tsp. freshly chopped thyme</li>
+            <li><input type="checkbox"> 1 tsp. freshly chopped rosemary</li>
+            <li><input type="checkbox"> 2 c. low-sodium chicken or turkey broth</li>
+            <li><input type="checkbox"> Kosher salt</li>
+            <li><input type="checkbox"> Freshly ground black pepper</li>
+          </ul>
+
+          <h3>FOR HERB MAYO</h3>
+          <ul>
+            <li><input type="checkbox"> 1/2 c. mayonnaise</li>
+            <li><input type="checkbox"> 2 tbsp. dijon mustard</li>
+            <li><input type="checkbox"> 1 tsp. freshly chopped parsley</li>
+            <li><input type="checkbox"> 1 tsp. freshly chopped thyme</li>
+            <li><input type="checkbox"> 1 tsp. freshly chopped chives</li>
+          </ul>
+
+          <h3>FOR THE SANDWICH</h3>
+          <ul>
+            <li><input type="checkbox"> 9 slices white bread, toasted</li>
+            <li><input type="checkbox"> 1 lb. leftover turkey, sliced</li>
+            <li><input type="checkbox"> 1 c. leftover mashed potatoes</li>
+            <li><input type="checkbox"> 1 c. cranberry sauce</li>
+            <li><input type="checkbox"> 1 c. leftover stuffing</li>
+            <li><input type="checkbox"> Arugula</li>
+          </ul>
+        </div>
+
+      <div class="instructions">
+          <h2>Instructions</h2>
+          <ol>
+
+            <li><div class="step-number">1</div>Make gravy: In a small saucepan over medium heat, melt butter. Whisk in flour and cook until golden, 1 minute, then whisk in pan drippings. (If you have more than a 1/2 cup of drippings, use it and reduce the amount of broth!)</li>
+            <li><div class="step-number">2</div>Bring mixture to a boil, then reduce heat and simmer gently until slightly thickened. Stir in fresh herbs, then whisk in broth and return mixture to a simmer. Season with salt and pepper.</li>
+            <li><div class="step-number">3</div>Simmer 10 minutes, gradually adding more broth if gravy is too thick. Season with salt and pepper. Let cool slightly.</li>
+            <li><div class="step-number">4</div>Make herb mayo: In a medium bowl, combine mayonnaise, mustard, and fresh herbs.</li>
+            <li><div class="step-number">5</div>Spread herb mayo on one side of 6 pieces of bread. Dip remaining 3 pieces of bread into gravy, making sure plenty soaks in.</li>
+            <li><div class="step-number">6</div>Build sandwich by placing turkey on a mayonnaise spread piece of bread, then top with turkey, mashed potatoes, cranberry sauce, a gravy-soaked piece of bread, stuffing, arugula, and another mayonnaise spread piece of bread. Repeat with remaining ingredients to make 2 more sandwiches.</li>
+          </ol>
+        </div>
+      </section>
+
+      <footer>
+        <p class="author">Recipe by Vinaya Punnose</p>
+      </footer>
+    </div>
+  </main>
+</body>
+
+</html>

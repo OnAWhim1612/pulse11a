@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Netflix Profiles Page Clone</title>
+  <style>
+    /* Reset some default styles */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #111;
+      color: #fff;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+
+    /* Netflix-like profile cards */
+    .profiles-container {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      max-width: 900px;
+      gap: 20px;
+    }
+
+    .profile-card {
+      width: 200px;
+      height: 200px; /* Set the height to match the width to create full squares */
+      background-color: #333;
+
+      padding: 0px;
+      text-align: center;
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+
+    .profile-card img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover; /* Make the images cover the entire square */
+
+      margin-bottom: 10px;
+    }
+
+    .profile-name {
+      font-size: 18px;
+      font-weight: bold;
+      margin-top: 10px; /* Add some space between the image and the name */
+    }
+
+    /* Add hover effect */
+    .profile-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.4);
+    }
+
+    /* Links Placeholder (Replace href with actual links) */
+    .profile-link {
+      color: #fff;
+      text-decoration: none;
+    }
+    .logo-container {
+      position: absolute;
+      top: 20px;
+      left: 20px;
+    }
+
+    .logo {
+      width: 200px; /* Adjust the width and height as needed */
+      height: 80px;
+    }
+
+  </style>
+</head>
+<body>
+ <div class="logo-container">
+  <a href="{{ url_for('landing') }}">
+    <img class="logo" src="https://i.imgur.com/f17vrBJ.png" alt="Logo">
+  </a>
+</div>
+  <div class="profiles-container">
+    <div class="profile-card" onmouseenter="playHoverSound()">
+      <!-- Add the onmouseenter event to trigger the sound -->
+      <img src="https://wallpapers.com/images/hd/netflix-profile-pictures-1000-x-1000-dyrp6bw6adbulg5b.jpg" alt="Profile 1">
+      <div class="profile-name">Viewer</div>
+      <a class="profile-link" href="main">To peruse Magazine Contents</a>
+    </div>
+    <!-- Add onmouseenter to the rest of the profile cards -->
+
+    <div class="profile-card" onmouseenter="playHoverSound()">
+      <img src="https://wallpapers.com/images/hd/netflix-profile-pictures-5yup5hd2i60x7ew3.jpg" alt="Profile 3">
+      <div class="profile-name">Member</div>
+      <a class="profile-link" href="#">Upload Submissions</a>
+    </div>
+    <div class="profile-card" onmouseenter="playHoverSound()">
+      <img src="https://wallpapers.com/images/hd/netflix-profile-pictures-1000-x-1000-88wkdmjrorckekha.jpg" alt="Profile 3">
+      <div class="profile-name">Admin</div>
+      <a class="profile-link" href="#">Access to Editor and Sub-Editor Only</a>
+    </div>
+  </div>
+
+  <!-- Add an audio element to play the sound -->
+  <audio id="hover-sound">
+    <source src="{{ url_for('static', filename='hover.mp3') }}" type="audio/mpeg">
+    Your browser does not support the audio element.
+  </audio>
+
+  <script>
+
+    function playHoverSound() {
+      var sound = document.getElementById("hover-sound");
+      sound.currentTime = 0; // Reset the sound to the beginning to allow playing it multiple times in a row
+      sound.play();
+    }
+  </script>
+</body>
+</html>

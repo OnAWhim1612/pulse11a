@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Big Bang Theory TV Show Quiz</title>
+  <style>
+    body {
+      font-family: 'Roboto', Arial, sans-serif;
+      background-color: #1f1e1e;
+      color: #e8ebeb;
+      line-height: 1.6;
+    }
+
+    header {
+      background-color: #1f1e1e;
+      padding: 10px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .logo {
+      max-width: 150px;
+    }
+
+    .quiz-container {
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 20px;
+      background-color: #141414;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      border-radius: 8px;
+    }
+
+    .question {
+      font-weight: bold;
+      margin-bottom: 10px;
+    }
+
+    .options label {
+      display: block;
+      margin-bottom: 10px;
+      cursor: pointer;
+    }
+
+    .options label:hover {
+      color: #e50914;
+    }
+
+    .result {
+      font-weight: bold;
+      margin-top: 20px;
+    }
+
+    .submit-btn {
+      display: block;
+      margin: 20px auto;
+      padding: 10px 30px;
+      background-color: #e50914;
+      color: #fff;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+      transition: background-color 0.3s;
+    }
+
+    .submit-btn:hover {
+      background-color: #b6070e;
+    }
+
+     .options input[type="radio"] {
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    width: 20px;
+    height: 20px;
+    border: 2px solid #e50914; /* Red outline color */
+    border-radius: 4px;
+    margin-right: 8px;
+    cursor: pointer;
+  }
+
+  /* Checked radio input styles */
+  .options input[type="radio"]:checked {
+    background-color: #e50914; /* Red fill color when checked */
+  }
+
+  /* Hover effect for radio inputs */
+  .options input[type="radio"]:hover {
+    border-color: #ff1a40; /* Lighter red outline color on hover */
+  }
+
+  .author {
+      font-size: 18px;
+      margin-top: 20px;
+      color: #777;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <img src="https://i.imgur.com/6wgR25M.png" alt="Logo" class="logo">
+  </header>
+  <div class="quiz-container">
+    <h1 class="text-2xl font-bold mb-4">How much do you know? Have you really watched the BIG BANG THEORY?</h1>
+
+    <!-- Question 1 -->
+    <div class="question">Which restaurant did Penny work in?</div>
+    <div class="options">
+      <label><input type="radio" name="q1" value="a"> The Cheesecake Factory</label>
+      <label><input type="radio" name="q1" value="b"> Outback Steakhouse</label>
+    </div>
+
+    <!-- Question 2 -->
+    <div class="question">What is Raj's dog's name?</div>
+    <div class="options">
+      <label><input type="radio" name="q2" value="a"> Princess</label>
+      <label><input type="radio" name="q2" value="b"> Cinnamon</label>
+    </div>
+
+    <!-- Question 3 -->
+    <div class="question">What is Sheldon's catchphrase?</div>
+    <div class="options">
+      <label><input type="radio" name="q3" value="a">Bazooka</label>
+      <label><input type="radio" name="q3" value="b"> Bazinga</label>
+    </div>
+
+    <!-- Question 4 -->
+    <div class="question">After winning a "time machine," who does Leonard want to visit?</div>
+    <div class="options">
+      <label><input type="radio" name="q4" value="a"> Alexander Graham Bell</label>
+      <label><input type="radio" name="q4" value="b"> Issac Newton</label>
+    </div>
+
+    <!-- Question 5 -->
+    <div class="question">What do Sheldon and Amy win the Nobel Prize for?</div>
+    <div class="options">
+      <label><input type="radio" name="q5" value="a"> Super-Asymmetry Theory</label>
+      <label><input type="radio" name="q5" value="b"> The Anti-Gravity Paradox</label>
+    </div>
+
+    <button class="submit-btn" onclick="calculateScore()">Submit</button>
+    <div class="result" id="quizResult"></div>
+  </div>
+
+  <script>
+    function calculateScore() {
+      const questions = document.querySelectorAll('.options');
+      let score = 0;
+
+      // Correct answers array
+      const correctAnswers = ['a', 'b', 'b', 'a', 'a'];
+
+      questions.forEach((question, index) => {
+        const selectedOption = question.querySelector('input[type="radio"]:checked');
+        if (selectedOption && selectedOption.value === correctAnswers[index]) {
+          score += 1;
+        }
+      });
+
+      showResult(score);
+    }
+
+    function showResult(score) {
+      const resultDiv = document.getElementById('quizResult');
+      resultDiv.textContent = `Your score: ${score} out of 5`;
+    }
+  </script>
+  <footer>
+    <p class="author">Quiz by Hridya Rajesh</p>
+  </footer>
+</body>
+</html>
